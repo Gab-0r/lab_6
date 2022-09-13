@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.cubidevs.mobiedbapp2022.R
 import com.cubidevs.mobiedbapp2022.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
@@ -27,11 +28,13 @@ class DetailFragment : Fragment() {
 
         val city = args.city
         with(detailBinding){
-            movieTitleTextView.text = city.englishName
-            releaseDateTextView.text = city.country.toString()
-            voteAverageTextView.text = city.geoPosition.toString()
-
-
+            detailCityName.text = city.englishName
+            detailCityCountryValue.text = city.country?.englishName
+            detailCityCountryRegionValue.text = city.region?.englishName
+            detailCityTimezoneValue.text = city.timeZone?.name
+            gmtOffset.text = city.timeZone?.gmtOffset?.toInt().toString()
+            detailCityLatitudValue.text = city.geoPosition?.latitude.toString()
+            detailCityLongitudValue.text = city.geoPosition?.longitude.toString()
         }
     }
 }

@@ -39,9 +39,10 @@ class CitiesAdapter(
 
         fun bindCities(city: citiesListItem){
             with(binding){
-                movieTitleTextView.text = city.englishName
-                releaseDateTextView.text = city.primaryPostalCode
-                voteAverageTextView.text = city.country.toString()
+                city.let {
+                    cityNameTextView.text = city.englishName
+                    cityCountryValueTextView.text = city.country?.englishName
+                }
             }
         }
     }
